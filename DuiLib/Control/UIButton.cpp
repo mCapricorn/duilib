@@ -13,7 +13,14 @@ namespace DuiLib
 		, m_uFadeAlpha(255)
 	{
 		m_uTextStyle = DT_SINGLELINE | DT_VCENTER | DT_CENTER;
+		m_hcurStyle = IDC_HAND;
 	}
+
+	void CButtonUI::SetCursorStyle(LPCTSTR curStyle)
+	{
+		m_hcurStyle = curStyle;
+	}
+
 
 	LPCTSTR CButtonUI::GetClass() const
 	{
@@ -124,7 +131,7 @@ namespace DuiLib
 		}
 		if( event.Type == UIEVENT_SETCURSOR )
 		{
-			::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND)));
+			::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE((LPSTR)m_hcurStyle)));
 			return;
 		}
 		if( event.Type == UIEVENT_TIMER  && event.wParam == FADE_TIMERID ) 
@@ -506,4 +513,5 @@ namespace DuiLib
 Label_ForeImage:
 		DrawImage(hDC, m_diFore);
 	}
+
 }

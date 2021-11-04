@@ -51,6 +51,7 @@ namespace DuiLib
 
 		void PaintText(HDC hDC);
 		void PaintStatusImage(HDC hDC);
+		void SetCursorStyle(LPCTSTR curStyle);
 
 	protected:
 		enum
@@ -75,6 +76,7 @@ namespace DuiLib
 		TDrawInfo m_diPushedFore;
 		TDrawInfo m_diFocused;
 		TDrawInfo m_diDisabled;
+		LPCTSTR m_hcurStyle;
 	};
 
 }	// namespace DuiLib
